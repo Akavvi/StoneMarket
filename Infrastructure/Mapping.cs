@@ -1,0 +1,16 @@
+﻿using Domain.Entities;
+using Mapster;
+
+namespace Infrastructure;
+
+public class Mapping : IRegister
+{
+    public void Register(TypeAdapterConfig config)
+    {
+        config.NewConfig<BaseEntity<long>, long>()
+            .MapWith(entity => entity.Id);
+        
+        config.NewConfig<Enum, string>()
+            .MapWith(enumeration => enumeration.ToString().ToUpper());
+    }
+}
