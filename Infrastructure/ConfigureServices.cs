@@ -6,11 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Infrastructure;
 
-public static class ConfigureServices
+public static class ConfigureInfrastructureServices
 {
     public static void AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddScoped<Mapping>();
         services.AddHostedService<MigrateService>();
 
         var hostname = configuration["DB_HOST"];
