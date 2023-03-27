@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using Mapster;
 
-namespace Infrastructure;
+namespace Application;
 
 public class Mapping : IRegister
 {
