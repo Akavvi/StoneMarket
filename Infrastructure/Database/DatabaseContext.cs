@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Context;
+namespace Infrastructure.Database;
 
 public class DatabaseContext : DbContext
 {
@@ -12,12 +12,31 @@ public class DatabaseContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        #region default values
+        
+        modelBuilder.Entity<User>()
+            .Property(u => u.IsActive)
+            .HasDefaultValue(false);
+        
+        modelBuilder.Entity<User>()
+            .Property(u => u.Rating)
+            .HasDefaultValue(0.0f);
+
+        modelBuilder.Entity<Product>()
+            .Property(p => p.Description)
+            .HasDefaultValue("Не указано");
+        #endregion
+
+        #region relations
+
         modelBuilder.Entity<Product>()
             .HasOne(p => p.Owner);
-
+        
         modelBuilder.Entity<User>()
             .HasMany(u => u.Products);
-        
+
+        #endregion
+
         base.OnModelCreating(modelBuilder);
     }
 }
