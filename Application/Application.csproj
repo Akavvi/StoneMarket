@@ -9,12 +9,12 @@
     <ItemGroup>
       <Folder Include="Features\Products\Commands" />
       <Folder Include="Features\Products\Queries" />
-      <Folder Include="Features\Users\Commands" />
       <Folder Include="Features\Users\Queries" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="FluentValidation" Version="11.5.1" />
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.1" />
       <PackageReference Include="Mapster" Version="7.3.0" />
       <PackageReference Include="Mapster.DependencyInjection" Version="1.0.0" />
       <PackageReference Include="MediatR" Version="12.0.1" />
